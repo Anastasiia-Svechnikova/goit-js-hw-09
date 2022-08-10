@@ -64,3 +64,44 @@ a {
   transform: scale(1.06);
 
 }
+#datetime-picker{
+ text-align: center;
+}
+.start-btn{
+  padding: 3px 10px;
+  color: inherit;
+  border: none;
+  border-radius: 2px;
+  background-color: rgba(246, 159, 28, 0.928);
+}
+.start-btn:disabled{
+  background-color: rgba(188, 187, 186, 0.928);
+}
+.timer{
+  display: flex;
+  gap: 10px;
+margin-top: 20vh;
+
+  text-align: center;
+  justify-content: center;
+}
+.field{border-radius: 4px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.value{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(246, 159, 28, 0.928);
+  font-size: 70px;
+ 
+  
+
+}
+.label{
+  display: block;
+  background-color: rgba(246, 159, 28, 0.928);
+}
