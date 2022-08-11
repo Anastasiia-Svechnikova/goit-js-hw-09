@@ -1,8 +1,45 @@
+import Notiflix from 'notiflix';
+
+const refs = {
+  submitBtn: document.querySelector('button'),
+  form: document.querySelector('.form'),
+};
+refs.submitBtn.addEventListener('click', onSubmitBtnClick);
+
+function onSubmitBtnClick(e) {
+  e.preventDefault();
+  const form = new FormData(refs.form);
+  const amount = Number(form.get('amount'));
+  const firstDelay = Number(form.get('delay'));
+  const step = Number(form.get('step'));
+  setTimeout(generateMultiplePromises, firstDelay, amount, step, firstDelay);
+}
+
+function generateMultiplePromises(amount, step, firstDelay) {
+  for (let i = 0; i < amount; i += 1) {
+    createPromise(i + 1, step * i)
+      .then(({ position, delay }) => {
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay + firstDelay}ms`
+        );
+      })
+      .catch(({ position, delay }) => {
+        Notiflix.Notify.failure(
+          `❌ Rejected promise ${position} in ${delay + firstDelay}ms`
+        );
+      });
+  }
+}
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      } else {
+        reject({ position, delay });
+      }
+    }, delay);
+  });
 }

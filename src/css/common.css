@@ -105,3 +105,39 @@ margin-top: 20vh;
   display: block;
   background-color: rgba(246, 159, 28, 0.928);
 }
+.form{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+.form__btn{
+  padding: 30px 30px;
+color: inherit;
+  border: none;
+  border-radius: 9px;
+  background-color: rgba(246, 159, 28, 0.928);
+  
+
+
+}
+.form label{
+
+  display: block;
+
+
+}
+.form input{
+  display: block;
+  height: 70px;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+
+}
