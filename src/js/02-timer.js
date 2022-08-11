@@ -23,6 +23,8 @@ const options = {
 
   onClose(selectedDates) {
     const selectedDateUnix = selectedDates[0].getTime();
+    // console.log(selectedDateUnix);
+    // console.log(Date.now());
     let id = null;
 
     if (Date.now() > selectedDateUnix) {
@@ -43,9 +45,13 @@ const options = {
     }
 
     function getDelta() {
-      const delta = convertMs(selectedDateUnix - Date.now());
+      const delta = selectedDateUnix - Date.now();
+      if (delta < 0) {
+        clearInterval(id);
+        return;
+      }
 
-      renderTimer(delta);
+      renderTimer(convertMs(delta));
     }
 
     startBtnref.disabled = false;
